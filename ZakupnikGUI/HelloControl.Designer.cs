@@ -1,6 +1,6 @@
 ﻿namespace ZakupnikGUI
 {
-    partial class ControlRecipesList
+    partial class HelloControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,31 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
-            // button1
+            // label1
             // 
-            button1.Location = new Point(88, 139);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label1.Location = new Point(140, 164);
+            label1.Name = "label1";
+            label1.Size = new Size(300, 32);
+            label1.TabIndex = 0;
+            label1.Text = "Witaj w twoim Zakupniku!";
             // 
-            // ControlRecipesList
+            // HelloControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
-            Name = "ControlRecipesList";
+            Controls.Add(label1);
+            Name = "HelloControl";
             Size = new Size(600, 450);
-            Load += ControlRecipesList_Load;
+            Load += HelloControl_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
+        private Label label1;
     }
 }

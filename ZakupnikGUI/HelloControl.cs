@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace ZakupnikGUI
 {
-    public partial class ControlShoppingCart : UserControl
+    public partial class HelloControl : UserControl
     {
-        public ControlShoppingCart()
+        public HelloControl()
         {
             InitializeComponent();
         }
 
-        private void ControlShoppingCart_Load(object sender, EventArgs e)
+        private void HelloControl_Load(object sender, EventArgs e)
         {
 
         }

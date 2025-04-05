@@ -16,5 +16,10 @@ namespace ZakupnikGUI
         {
             InitializeComponent();
         }
+
+        private void ControlRecipesList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
