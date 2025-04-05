@@ -13,7 +13,7 @@ namespace ZakupnikGUI
         public static Dictionary<string, Przepis> Dict { get; set; } = JsonSerializer.Deserialize<Dictionary<string, Przepis>>(pathDict);
         public static List<string> _lista = new List<string>();
         
-        public static List<string> DicList()
+        public static List<string> ListOfRecipes()
         {
             foreach (var key in Dict.Keys)
             {

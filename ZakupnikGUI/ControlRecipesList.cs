@@ -34,8 +34,8 @@ namespace ZakupnikGUI
             if (mIndex < MainDict.Dict.Count)
             {
 
-                labelTitle.Text = MainDict.DicList()[mIndex];
-                foreach (var item in MainDict.Dict[MainDict.DicList()[mIndex]].Ingridiens)
+                labelTitle.Text = MainDict.ListOfRecipes()[mIndex];
+                foreach (var item in MainDict.Dict[MainDict.ListOfRecipes()[mIndex]].Ingridiens)
                 {
                     _tempStr = $"{_tempStr}{item}\n";
                 }
@@ -56,8 +56,8 @@ namespace ZakupnikGUI
             if (mIndex <= MainDict.Dict.Count && mIndex > 0)
             {
                 mIndex--;
-                labelTitle.Text = MainDict.DicList()[mIndex];
-                foreach (var item in MainDict.Dict[MainDict.DicList()[mIndex]].Ingridiens)
+                labelTitle.Text = MainDict.ListOfRecipes()[mIndex];
+                foreach (var item in MainDict.Dict[MainDict.ListOfRecipes()[mIndex]].Ingridiens)
                 {
                     _tempStr = $"{_tempStr}{item}\n";
                 }
@@ -74,7 +74,7 @@ namespace ZakupnikGUI
         private void buttonDel_Click(object sender, EventArgs e)
         {
             Core core = new Core();
-            core.DeleteRecipe(MainDict.DicList()[mIndex]);
+            core.DeleteRecipe(MainDict.ListOfRecipes()[mIndex]);
             mIndex = -1;
             labelIngredients.Text = "Usunięto";
             labelTitle.Text = "Usunięto";
