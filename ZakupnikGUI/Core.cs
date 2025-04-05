@@ -7,15 +7,34 @@ using System.Threading.Tasks;
 
 namespace ZakupnikGUI
 {
-    internal class Core
+    public class MainDict
     {
         private static string pathDict = File.ReadAllText("Dictionary.json");
-        public static Dictionary<string, Przepis> loadedDictionary = JsonSerializer.Deserialize<Dictionary<string, Przepis>>(pathDict);
+        public static Dictionary<string, Przepis> Dict { get; set; } = JsonSerializer.Deserialize<Dictionary<string, Przepis>>(pathDict);
+        public static List<string> _lista = new List<string>();
+        
+        public static List<string> DicList()
+        {
+            foreach (var key in Dict.Keys)
+            {
+                _lista.Add(key);
+            }
+            return _lista;
+        }
+    }
 
+    
+    internal class Core
+    {
+        
+        
         private List<string> _list = new List<string>();
         private string _path = "Przepisy.txt";
+        
+      
         public void ListCreator(string name, List<string> quantity)
         {
+            
 
             var temp = default(string);
             temp = name + ";" + quantity;
@@ -24,34 +43,12 @@ namespace ZakupnikGUI
         }
         public void AddNewRecipe(string name, List<string> quantity)
         {
-            /* var tempString = default(string);
-             var recipe = new Przepis();
-             recipe.Name = name;
-             recipe.Ingridiens = quantity;
-             tempString = name+"xx";
-             foreach (var item in quantity)
-             {
-                 tempString += "x"+item;
-             }
-             using (StreamWriter writer = File.AppendText(_path))
-             {
-                 writer.WriteLine(tempString);
-             }
-
-              string loadedJson = File.ReadAllText("people.json");
-         Dictionary<string, Person> loadedPeople = JsonSerializer.Deserialize<Dictionary<string, Person>>(loadedJson);
-
-
-             */
+           
             var stringName = name;
-            loadedDictionary[name] = new Przepis { Name = name, Ingridiens = quantity };
-            string jsonString = JsonSerializer.Serialize(loadedDictionary, new JsonSerializerOptions { WriteIndented = true });
+            MainDict.Dict.Add(name, new Przepis { Name = name, Ingridiens = quantity });
+
+            string jsonString = JsonSerializer.Serialize(MainDict.Dict, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText("Dictionary.json", jsonString);
-
-
-
-
-
         }
         public void DeleteRecipe()
         {

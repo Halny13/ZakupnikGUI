@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZakupnikGUI
 {
-    internal class Przepis
+    public class Przepis
     {
         public string Name { get; set; }
 

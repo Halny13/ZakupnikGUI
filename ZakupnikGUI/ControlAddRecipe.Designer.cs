@@ -34,6 +34,7 @@
             textBoxIng = new TextBox();
             AddIngridend = new Button();
             AddRecipe = new Button();
+            labelAddIng = new Label();
             SuspendLayout();
             // 
             // label1title
@@ -88,10 +89,20 @@
             AddRecipe.UseVisualStyleBackColor = true;
             AddRecipe.Click += AddRecipe_Click;
             // 
+            // labelAddIng
+            // 
+            labelAddIng.AutoSize = true;
+            labelAddIng.Location = new Point(54, 105);
+            labelAddIng.Name = "labelAddIng";
+            labelAddIng.Size = new Size(97, 15);
+            labelAddIng.TabIndex = 6;
+            labelAddIng.Text = "Dodane składniki";
+            // 
             // ControlAddRecipe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(labelAddIng);
             Controls.Add(AddRecipe);
             Controls.Add(AddIngridend);
             Controls.Add(textBoxIng);
@@ -113,5 +124,6 @@
         private TextBox textBoxIng;
         private Button AddIngridend;
         private Button AddRecipe;
+        private Label labelAddIng;
     }
 }
