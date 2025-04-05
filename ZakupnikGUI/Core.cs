@@ -46,21 +46,23 @@ namespace ZakupnikGUI
            
             var stringName = name;
             MainDict.Dict.Add(name, new Przepis { Name = name, Ingridiens = quantity });
-
-            string jsonString = JsonSerializer.Serialize(MainDict.Dict, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText("Dictionary.json", jsonString);
+            SafeToFile();
         }
-        public void DeleteRecipe()
+        public void DeleteRecipe(string name)
         {
-
+            MainDict.Dict.Remove(name);
+            SafeToFile();
         }
+
+    
         public void ListOfRecipes()
         {
 
         }
         public void SafeToFile()
         {
-
+            string jsonString = JsonSerializer.Serialize(MainDict.Dict, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText("Dictionary.json", jsonString);
         }
         public void CounterCart()
         {

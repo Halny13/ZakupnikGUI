@@ -34,6 +34,7 @@
             labelIngredients = new Label();
             labelIndex = new Label();
             labelCount = new Label();
+            buttonDel = new Button();
             SuspendLayout();
             // 
             // buttonPre
@@ -92,10 +93,21 @@
             labelCount.TabIndex = 5;
             labelCount.Text = "label2";
             // 
+            // buttonDel
+            // 
+            buttonDel.Location = new Point(482, 361);
+            buttonDel.Name = "buttonDel";
+            buttonDel.Size = new Size(97, 68);
+            buttonDel.TabIndex = 6;
+            buttonDel.Text = "Kasuj przepis";
+            buttonDel.UseVisualStyleBackColor = true;
+            buttonDel.Click += buttonDel_Click;
+            // 
             // ControlRecipesList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(buttonDel);
             Controls.Add(labelCount);
             Controls.Add(labelIndex);
             Controls.Add(labelIngredients);
@@ -117,5 +129,6 @@
         private Label labelIngredients;
         private Label labelIndex;
         private Label labelCount;
+        private Button buttonDel;
     }
 }
