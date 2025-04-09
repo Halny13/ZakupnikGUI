@@ -12,7 +12,7 @@ namespace ZakupnikGUI
         private static string pathDict = File.ReadAllText("Dictionary.json");
         public static Dictionary<string, Przepis> Dict { get; set; } = JsonSerializer.Deserialize<Dictionary<string, Przepis>>(pathDict);
         public static List<string> _lista = new List<string>();
-        
+
         public static List<string> ListOfRecipes()
         {
             foreach (var key in Dict.Keys)
@@ -21,25 +21,49 @@ namespace ZakupnikGUI
             }
             return _lista;
         }
-        
+
     }
 
     public static class ListOfIng
     {
         public static List<string> mlistOfIng = new List<string>();
-
     }
+    public static class InitFirst
+    {
+        public static void MainDictExist()
+        {
+
+
+            string pathDict = "Dictionary.json";
+
+            if (!File.Exists(pathDict))
+            {
+                Dictionary<string, Przepis> FirstDict = new Dictionary<string, Przepis>();
+                Przepis pierwszyPrzepis = new Przepis();
+                pierwszyPrzepis.Name = "Pierwszy";
+                pierwszyPrzepis.Ingridiens = new List<string>() { "przykład" };
+                FirstDict.Add("Pierwszy przepis", pierwszyPrzepis);
+
+                string jsonString = JsonSerializer.Serialize(FirstDict, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(pathDict, jsonString);
+            }
+            else { return; }
+
+        }
+    }
+
+
     internal class Core
     {
-        
-        
+
+
         private List<string> _list = new List<string>();
         private string _path = "Przepisy.txt";
-        
-      
+
+
         public void ListCreator(string name, List<string> quantity)
         {
-            
+
 
             var temp = default(string);
             temp = name + ";" + quantity;
@@ -48,7 +72,7 @@ namespace ZakupnikGUI
         }
         public void AddNewRecipe(string name, List<string> quantity)
         {
-           
+
             var stringName = name;
             MainDict.Dict.Add(name, new Przepis { Name = name, Ingridiens = quantity });
             SafeToFile();
@@ -59,7 +83,7 @@ namespace ZakupnikGUI
             SafeToFile();
         }
 
-    
+
         public void ListOfRecipes()
         {
 
@@ -71,7 +95,7 @@ namespace ZakupnikGUI
         }
         public void CounterCart()
         {
-            
+
         }
 
         public void AddListOfIng(string Ing)
@@ -89,9 +113,9 @@ namespace ZakupnikGUI
                     sw.WriteLine(item);
                     sw.Close();
                 }
-               
+
             }
-            
+
         }
         public void LoadListOfIng()
         {
@@ -109,38 +133,10 @@ namespace ZakupnikGUI
             {
                 File.Create(path).Close();
             }
-            
-            
-        }
-        public void MainDictExist()
-        {
-
-            string jsonString = JsonSerializer.Serialize(MainDict.Dict, new JsonSerializerOptions { WriteIndented = true });
-            string pathDict = File.ReadAllText("Dictionary.json");
-
-            try
-            {
-                if (MainDict.Dict == null)
-                {
-                    Core core = new Core();
-                    core.AddNewRecipe("Mój pierwszy przepis", new List<string> { "one" });
-                    if (!File.Exists(pathDict))
-                    {
-                        File.WriteAllText(pathDict, jsonString);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Core core = new Core();
-                core.AddNewRecipe("Mój pierwszy przepis", new List<string> { "one" });
-                if (!File.Exists(pathDict))
-                {
-                    File.WriteAllText(pathDict, jsonString);
-                }
-            }
 
 
         }
+
     }
 }
+
