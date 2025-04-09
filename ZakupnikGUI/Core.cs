@@ -92,6 +92,7 @@ namespace ZakupnikGUI
         {
             string jsonString = JsonSerializer.Serialize(MainDict.Dict, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText("Dictionary.json", jsonString);
+            
         }
         public void CounterCart()
         {
