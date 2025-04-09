@@ -35,6 +35,8 @@
             AddIngridend = new Button();
             AddRecipe = new Button();
             labelAddIng = new Label();
+            comboBoxIng = new ComboBox();
+            comboBoxValue = new ComboBox();
             SuspendLayout();
             // 
             // label1title
@@ -64,14 +66,14 @@
             // 
             // textBoxIng
             // 
-            textBoxIng.Location = new Point(195, 59);
+            textBoxIng.Location = new Point(270, 59);
             textBoxIng.Name = "textBoxIng";
             textBoxIng.Size = new Size(100, 23);
             textBoxIng.TabIndex = 3;
             // 
             // AddIngridend
             // 
-            AddIngridend.Location = new Point(367, 59);
+            AddIngridend.Location = new Point(458, 59);
             AddIngridend.Name = "AddIngridend";
             AddIngridend.Size = new Size(121, 23);
             AddIngridend.TabIndex = 4;
@@ -98,10 +100,28 @@
             labelAddIng.TabIndex = 6;
             labelAddIng.Text = "Dodane składniki";
             // 
+            // comboBoxIng
+            // 
+            comboBoxIng.FormattingEnabled = true;
+            comboBoxIng.Location = new Point(143, 59);
+            comboBoxIng.Name = "comboBoxIng";
+            comboBoxIng.Size = new Size(121, 23);
+            comboBoxIng.TabIndex = 7;
+            // 
+            // comboBoxValue
+            // 
+            comboBoxValue.FormattingEnabled = true;
+            comboBoxValue.Location = new Point(376, 59);
+            comboBoxValue.Name = "comboBoxValue";
+            comboBoxValue.Size = new Size(58, 23);
+            comboBoxValue.TabIndex = 8;
+            // 
             // ControlAddRecipe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(comboBoxValue);
+            Controls.Add(comboBoxIng);
             Controls.Add(labelAddIng);
             Controls.Add(AddRecipe);
             Controls.Add(AddIngridend);
@@ -125,5 +145,7 @@
         private Button AddIngridend;
         private Button AddRecipe;
         private Label labelAddIng;
+        private ComboBox comboBoxIng;
+        private ComboBox comboBoxValue;
     }
 }

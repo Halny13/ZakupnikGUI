@@ -17,6 +17,9 @@ namespace ZakupnikGUI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            Core core = new Core();
+            core.LoadListOfIng();
+            MainDict.MainDictExist();
             Application.Run(new Form1());
             
     }

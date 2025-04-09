@@ -21,9 +21,27 @@ namespace ZakupnikGUI
             }
             return _lista;
         }
+        public static void MainDictExist()
+        {
+            string jsonString = JsonSerializer.Serialize(MainDict.Dict, new JsonSerializerOptions { WriteIndented = true });
+            if (MainDict.Dict == null)
+            {
+                Core core = new Core();
+                core.AddNewRecipe("Mój pierwszy przepis", new List<string> { "one" });
+                if (!File.Exists(pathDict))
+                {
+                    File.WriteAllText(pathDict, jsonString);
+                }
+            }
+            
+        }
     }
 
-    
+    public static class ListOfIng
+    {
+        public static List<string> mlistOfIng = new List<string>();
+
+    }
     internal class Core
     {
         
@@ -66,7 +84,46 @@ namespace ZakupnikGUI
         }
         public void CounterCart()
         {
+            
+        }
 
+        public void AddListOfIng(string Ing)
+        {
+            ZakupnikGUI.ListOfIng.mlistOfIng.Add(Ing);
+        }
+
+        public void SafeListOfIng()
+        {
+            string path = "ListaSkładników.txt";
+            foreach (var item in ListOfIng.mlistOfIng)
+            {
+                using (StreamWriter sw = new StreamWriter(path))
+                {
+                    sw.WriteLine(item);
+                    sw.Close();
+                }
+               
+            }
+            
+        }
+        public void LoadListOfIng()
+        {
+            string path = "ListaSkładników.txt";
+            if (File.Exists(path))
+            {
+                string[] lines = File.ReadAllLines(path);
+
+                foreach (var line in lines)
+                {
+                    ListOfIng.mlistOfIng.Add(line);
+                }
+            }
+            else
+            {
+                File.Create(path).Close();
+            }
+            
+            
         }
     }
 }

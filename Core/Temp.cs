@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using ZakupnikGUI;
 
 namespace Core
-{
+{/*
     public static class MainDict
     {
         private static string pathDict = File.ReadAllText("Dictionary.json");
@@ -58,5 +58,5 @@ namespace Core
             }
         }
 
-    }
+    }*/
 }
