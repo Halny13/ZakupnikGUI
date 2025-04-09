@@ -21,33 +21,7 @@ namespace ZakupnikGUI
             }
             return _lista;
         }
-        public static void MainDictExist()
-        {
-            string jsonString = JsonSerializer.Serialize(MainDict.Dict, new JsonSerializerOptions { WriteIndented = true });
-            try
-            {
-                if (MainDict.Dict == null)
-                {
-                    Core core = new Core();
-                    core.AddNewRecipe("Mój pierwszy przepis", new List<string> { "one" });
-                    if (!File.Exists(pathDict))
-                    {
-                        File.WriteAllText(pathDict, jsonString);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Core core = new Core();
-                core.AddNewRecipe("Mój pierwszy przepis", new List<string> { "one" });
-                if (!File.Exists(pathDict))
-                {
-                    File.WriteAllText(pathDict, jsonString);
-                }
-            }
-            
-            
-        }
+        
     }
 
     public static class ListOfIng
@@ -137,6 +111,36 @@ namespace ZakupnikGUI
             }
             
             
+        }
+        public void MainDictExist()
+        {
+
+            string jsonString = JsonSerializer.Serialize(MainDict.Dict, new JsonSerializerOptions { WriteIndented = true });
+            string pathDict = File.ReadAllText("Dictionary.json");
+
+            try
+            {
+                if (MainDict.Dict == null)
+                {
+                    Core core = new Core();
+                    core.AddNewRecipe("Mój pierwszy przepis", new List<string> { "one" });
+                    if (!File.Exists(pathDict))
+                    {
+                        File.WriteAllText(pathDict, jsonString);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Core core = new Core();
+                core.AddNewRecipe("Mój pierwszy przepis", new List<string> { "one" });
+                if (!File.Exists(pathDict))
+                {
+                    File.WriteAllText(pathDict, jsonString);
+                }
+            }
+
+
         }
     }
 }

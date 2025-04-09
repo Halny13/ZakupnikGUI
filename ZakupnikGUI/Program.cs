@@ -19,7 +19,7 @@ namespace ZakupnikGUI
             ApplicationConfiguration.Initialize();
             Core core = new Core();
             core.LoadListOfIng();
-            MainDict.MainDictExist();
+            core.MainDictExist();
             Application.Run(new Form1());
             
     }
