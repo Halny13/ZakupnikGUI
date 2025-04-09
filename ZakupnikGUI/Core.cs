@@ -24,7 +24,19 @@ namespace ZakupnikGUI
         public static void MainDictExist()
         {
             string jsonString = JsonSerializer.Serialize(MainDict.Dict, new JsonSerializerOptions { WriteIndented = true });
-            if (MainDict.Dict == null)
+            try
+            {
+                if (MainDict.Dict == null)
+                {
+                    Core core = new Core();
+                    core.AddNewRecipe("Mój pierwszy przepis", new List<string> { "one" });
+                    if (!File.Exists(pathDict))
+                    {
+                        File.WriteAllText(pathDict, jsonString);
+                    }
+                }
+            }
+            catch (Exception ex)
             {
                 Core core = new Core();
                 core.AddNewRecipe("Mój pierwszy przepis", new List<string> { "one" });
@@ -33,6 +45,7 @@ namespace ZakupnikGUI
                     File.WriteAllText(pathDict, jsonString);
                 }
             }
+            
             
         }
     }
