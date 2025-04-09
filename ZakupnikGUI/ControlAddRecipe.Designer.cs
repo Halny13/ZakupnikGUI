@@ -35,45 +35,51 @@
             AddIngridend = new Button();
             AddRecipe = new Button();
             labelAddIng = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1title
             // 
             label1title.AutoSize = true;
-            label1title.Location = new Point(54, 24);
+            label1title.Location = new Point(77, 40);
+            label1title.Margin = new Padding(4, 0, 4, 0);
             label1title.Name = "label1title";
-            label1title.Size = new Size(92, 15);
+            label1title.Size = new Size(140, 25);
             label1title.TabIndex = 0;
             label1title.Text = "Nazwa przepisu:";
             // 
             // label2nameOfInd
             // 
             label2nameOfInd.AutoSize = true;
-            label2nameOfInd.Location = new Point(54, 67);
+            label2nameOfInd.Location = new Point(77, 112);
+            label2nameOfInd.Margin = new Padding(4, 0, 4, 0);
             label2nameOfInd.Name = "label2nameOfInd";
-            label2nameOfInd.Size = new Size(57, 15);
+            label2nameOfInd.Size = new Size(87, 25);
             label2nameOfInd.TabIndex = 1;
             label2nameOfInd.Text = "Składniki:";
             // 
             // textBoxTitle
             // 
-            textBoxTitle.Location = new Point(195, 16);
+            textBoxTitle.Location = new Point(279, 27);
+            textBoxTitle.Margin = new Padding(4, 5, 4, 5);
             textBoxTitle.Name = "textBoxTitle";
-            textBoxTitle.Size = new Size(100, 23);
+            textBoxTitle.Size = new Size(141, 31);
             textBoxTitle.TabIndex = 2;
             // 
             // textBoxIng
             // 
-            textBoxIng.Location = new Point(195, 59);
+            textBoxIng.Location = new Point(279, 98);
+            textBoxIng.Margin = new Padding(4, 5, 4, 5);
             textBoxIng.Name = "textBoxIng";
-            textBoxIng.Size = new Size(100, 23);
+            textBoxIng.Size = new Size(141, 31);
             textBoxIng.TabIndex = 3;
             // 
             // AddIngridend
             // 
-            AddIngridend.Location = new Point(367, 59);
+            AddIngridend.Location = new Point(524, 98);
+            AddIngridend.Margin = new Padding(4, 5, 4, 5);
             AddIngridend.Name = "AddIngridend";
-            AddIngridend.Size = new Size(121, 23);
+            AddIngridend.Size = new Size(173, 38);
             AddIngridend.TabIndex = 4;
             AddIngridend.Text = "Dodaj składnik";
             AddIngridend.UseVisualStyleBackColor = true;
@@ -81,9 +87,10 @@
             // 
             // AddRecipe
             // 
-            AddRecipe.Location = new Point(408, 286);
+            AddRecipe.Location = new Point(601, 497);
+            AddRecipe.Margin = new Padding(4, 5, 4, 5);
             AddRecipe.Name = "AddRecipe";
-            AddRecipe.Size = new Size(146, 124);
+            AddRecipe.Size = new Size(209, 207);
             AddRecipe.TabIndex = 5;
             AddRecipe.Text = "Dodaj przepis";
             AddRecipe.UseVisualStyleBackColor = true;
@@ -92,16 +99,28 @@
             // labelAddIng
             // 
             labelAddIng.AutoSize = true;
-            labelAddIng.Location = new Point(54, 105);
+            labelAddIng.Location = new Point(77, 175);
+            labelAddIng.Margin = new Padding(4, 0, 4, 0);
             labelAddIng.Name = "labelAddIng";
-            labelAddIng.Size = new Size(97, 15);
+            labelAddIng.Size = new Size(149, 25);
             labelAddIng.TabIndex = 6;
             labelAddIng.Text = "Dodane składniki";
             // 
+            // button1
+            // 
+            button1.Location = new Point(61, 583);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 34);
+            button1.TabIndex = 7;
+            button1.Text = "temp";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // ControlAddRecipe
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button1);
             Controls.Add(labelAddIng);
             Controls.Add(AddRecipe);
             Controls.Add(AddIngridend);
@@ -109,8 +128,9 @@
             Controls.Add(textBoxTitle);
             Controls.Add(label2nameOfInd);
             Controls.Add(label1title);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "ControlAddRecipe";
-            Size = new Size(600, 450);
+            Size = new Size(857, 750);
             Load += ControlAddRecipe_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -125,5 +145,6 @@
         private Button AddIngridend;
         private Button AddRecipe;
         private Label labelAddIng;
+        private Button button1;
     }
 }

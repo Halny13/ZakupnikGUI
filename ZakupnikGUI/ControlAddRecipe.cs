@@ -15,15 +15,15 @@ namespace ZakupnikGUI
     {
         private List<string> lista = new List<string>();
         private string _tempStr;
-        
+
         public ControlAddRecipe()
         {
             InitializeComponent();
-            
-            
+
+
 
         }
-        
+
 
         private void ControlAddRecipe_Load(object sender, EventArgs e)
         {
@@ -46,6 +46,12 @@ namespace ZakupnikGUI
             textBoxTitle.Clear();
             _tempStr = "";
             labelAddIng.Text = "Dodane składniki";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Core core = new Core();
+            core.SafeToFile();
         }
     }
 }

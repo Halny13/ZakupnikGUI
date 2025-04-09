@@ -21,6 +21,10 @@ namespace ZakupnikGUI
             }
             return _lista;
         }
+        public static string PathReturn()
+        {
+            return pathDict;
+        }
     }
 
     
@@ -64,6 +68,34 @@ namespace ZakupnikGUI
             string jsonString = JsonSerializer.Serialize(MainDict.Dict, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText("Dictionary.json", jsonString);
         }
+            /*if (File.Exists("Dictionary.json"))
+            {
+                string jsonString = JsonSerializer.Serialize(MainDict.Dict, new JsonSerializerOptions { WriteIndented = true });
+
+                File.WriteAllText("Dictionary.json", jsonString);
+
+            }
+            else
+            {
+                string jsonString = JsonSerializer.Serialize("cokolwiek", new JsonSerializerOptions { WriteIndented = true });
+
+                using (FileStream fs = File.Create("Dictionary.json"))
+                {
+                    using (StreamWriter writer = new StreamWriter(fs))
+                    {
+                        writer.WriteAsync(jsonString);
+                    }
+                }
+                SafeToFile();
+            }
+        }
+           
+        {
+            string jsonString = JsonSerializer.Serialize(MainDict.Dict, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText("Dictionary.json", jsonString);
+            
+        }
+        */
         public void CounterCart()
         {
 
